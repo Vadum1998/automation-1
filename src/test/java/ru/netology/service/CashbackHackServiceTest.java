@@ -1,49 +1,38 @@
 package ru.netology.service;
 
-import org.testng.annotations.Test;
-
-import static org.testng.Assert.*;
+import static org.junit.Assert.*;
 
 public class CashbackHackServiceTest {
 
-    @Test
-    void minimumBuy() {
-        CashbackHackService service = new CashbackHackService();
+    @org.junit.Test
+    public void minimumBuy() {
         int amount = 100;
-        int actual = service.remain(amount);
         int expected = 900;
-
-        assertEquals(actual, expected);
-    }
-
-    @Test
-    void noBuy() {
         CashbackHackService service = new CashbackHackService();
-        int amount = 0;
         int actual = service.remain(amount);
-        int expected = 1000;
 
-        assertEquals(actual, expected);
+        assertEquals(expected, actual);
 
     }
 
-    @Test
-    void averageBuy() {
-        CashbackHackService service = new CashbackHackService();
+    @org.junit.Test
+    public void averageBuy() {
         int amount = 500;
-        int actual = service.remain(amount);
         int expected = 500;
-
-        assertEquals(actual, expected);
-    }
-
-    @Test
-    void maximumBuy() {
         CashbackHackService service = new CashbackHackService();
-        int amount = 1000;
         int actual = service.remain(amount);
-        int expected = 0;
 
-        assertEquals(actual, expected);
+        assertEquals(expected, actual);
     }
+
+    @org.junit.Test
+    public void maximumBuy() {
+        int amount = 1000;
+        int expected = 0;
+        CashbackHackService service = new CashbackHackService();
+        int actual = service.remain(amount);
+        assertEquals(expected, actual);
+
+    }
+
 }
